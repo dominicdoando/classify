@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\CategoryFormRequest;
-use App\Models\Category;
+use App\Models\Subcategory;
+use App\Http\Requests\SubCategoryFormRequest;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 
-class CategoryController extends Controller
+class SubcategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::get();
-        return view('backend.category.index', compact('categories'));
+        $subcategories = Subcategory::orderBy('category_id')->get();
+        return view('backend.subcategory.index', compact('subcategories'));
     }
 
     /**
@@ -29,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.category.create');
+        return view('backend.subcategory.create');
     }
 
     /**
@@ -38,15 +36,14 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryFormRequest $request)
+    public function store(SubCategoryFormRequest $request)
     {
-        $image = $request->file('image')->store('category');
-        Category::create([
+        Subcategory::create([
             'name' => $name = $request->name,
-            'image' => $image,
+            'category_id' => $request->category_id,
             'slug' => Str::slug($name)
         ]);
-        return redirect()->route('category.index')->with('message', 'Category create successfully');
+        return back()->with('message', 'SubCategory create successfully');
     }
 
     /**
@@ -68,8 +65,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('backend.category.edit', compact('category'));
+        $subcategory = Subcategory::find($id);
+        return view('backend.subcategory.edit', compact('subcategory'));
     }
 
     /**
@@ -81,20 +78,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::find($id);
-
-        if($request->hasFile('image')){
-            $image = $request->file('image')->store('category');
-            Storage::delete($category->image);
-            $category->update([
-                'name' => $request->name,
-                'image' => $image,
-            ]);
-        }
-        $category->update([
+        $subcategory = Subcategory::find($id);
+        $subcategory->update([
             'name' => $request->name,
+            'category_id' => $request->category_id,
         ]);
-        return redirect()->route('category.index')->with('message', 'Category update successfully');
+        return redirect()->route('subcategory.index')->with('message', 'Sub Category update successfully');
     }
 
     /**
@@ -105,8 +94,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
-        return redirect()->route('category.index')->with('message', 'Category delete successfully');
+        $subcategory = Subcategory::find($id);
+        $subcategory->delete();
+        return redirect()->route('subcategory.index')->with('message', 'Sub Category delete successfully');
     }
 }

@@ -28,4 +28,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['prefix' => 'auth'], function(){
     Route::resource('/category', 'CategoryController');
+    Route::resource('/subcategory', 'SubcategoryController');
 });
