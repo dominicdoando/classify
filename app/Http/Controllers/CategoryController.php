@@ -46,7 +46,7 @@ class CategoryController extends Controller
             'image' => $image,
             'slug' => Str::slug($name)
         ]);
-        return redirect()->back();
+        return redirect()->route('category.index')->with('message', 'Category create successfully');
     }
 
     /**
@@ -94,7 +94,7 @@ class CategoryController extends Controller
         $category->update([
             'name' => $request->name,
         ]);
-        return redirect()->route('category.index');
+        return redirect()->route('category.index')->with('message', 'Category update successfully');;
     }
 
     /**
@@ -105,6 +105,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->route('category.index')->with('message', 'Category delete successfully');;
     }
 }

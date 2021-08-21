@@ -4,6 +4,7 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
+        @include('backend.inc.message')
         <h4 class="card-title">All Category</h4>
         <table class="table">
             <thead>
@@ -23,7 +24,12 @@
                         <a href="{{ route('category.edit', [$category->id]) }}" class="btn btn-info">Edit</a>
                     </td>
                     <td>
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <form action="{{route('category.destroy', [$category->id])}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</button>
+                        </form>
+
                     </td>
                 </tr>
                 {{-- @empty
