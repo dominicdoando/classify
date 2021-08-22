@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+
 Route::get('/admin', function () {
     return view('backend.index');
 });
@@ -31,3 +29,4 @@ Route::group(['prefix' => 'auth'], function(){
     Route::resource('/subcategory', 'SubcategoryController');
     Route::resource('/childcategory', 'ChildcategoryController');
 });
+Route::get('/','MenuController@menu');
