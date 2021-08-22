@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +31,8 @@ Route::group(['prefix' => 'auth'], function(){
     Route::resource('/childcategory', 'ChildcategoryController');
 });
 Route::get('/','MenuController@menu');
+//ad
+Route::get('/ads/create','AdvertisementController@create');
+Route::post('/ads/store','AdvertisementController@store')->name('ads.store');
+
+
