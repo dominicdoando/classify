@@ -33,7 +33,19 @@
               </ul>
         </div>
       </li>
-
+      <li class="nav-item2">
+        <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic1">
+          <i class="mdi mdi-circle-outline menu-icon"></i>
+          <span class="menu-title">Child Category</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-basic1">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('childcategory.index') }}">Manage</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('childcategory.create') }}">Add</a></li>
+              </ul>
+        </div>
+      </li>
 
       <li class="nav-item">
         <a class="nav-link" href="pages/forms/basic_elements.html">
