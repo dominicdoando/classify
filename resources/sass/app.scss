@@ -1,12 +1,8 @@
-.banner{
-    .swiper-slide{
-        img{
-            display: block;
-            width: 100%;
-        }
-    }
-}
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-.form-control{
-    width: 100%;
-}
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';

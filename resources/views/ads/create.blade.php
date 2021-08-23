@@ -3,6 +3,7 @@
 @section('content')
 <section class="banner pt-5 mt-5">
     <div class="container">
+
         <div class="row">
             <div class="col-md-3">
                 <div class="card">
@@ -42,61 +43,27 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-12 mb-3"><h1-6 class="">Upload 3 Images</h1-6></div>
+                                <div class="col-12 mb-3"><h1 class="">Upload 3 Images</h1></div>
                                 <div class="row mb-3">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                          <label for=""></label>
-                                          <input type="file" class="form-control-file" name="feature_image" accept="image/*" placeholder="">
+                                          <feature-image />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                          <label for=""></label>
-                                          <input type="file" class="form-control-file" name="first_image" accept="image/*" placeholder="">
+                                          <first-image />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                          <label for=""></label>
-                                          <input type="file" class="form-control-file" name="second_image" accept="image/*" placeholder="">
+                                          <second-image />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 mb-3"><h1-6 class="">Upload 3 Images</h1-6></div>
-                                <div class="col-md-4 mb-3">
-                                    <div class="form-group">
-                                      <label for=""></label>
-                                      <select class="form-control" name="category_id">
-                                        <option selected disabled> Select Category</option>
-                                        @foreach (App\Models\Category::all() as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
-
-                                      </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <div class="form-group">
-                                      <label for=""></label>
-                                      <select class="form-control" name="subcategory_id">
-                                        <option selected disabled>Select Subcategory</option>
-                                        @foreach (App\Models\Subcategory::all() as $subcategory)
-                                            <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
-                                        @endforeach
-                                      </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <div class="form-group">
-                                      <label for=""></label>
-                                      <select class="form-control" name="childcategory_id">
-                                        <option selected disabled>Select Child Category</option>
-                                        @foreach (App\Models\Childcategory::all() as $childcategory)
-                                            <option value="{{ $childcategory->id }}">{{ $childcategory->name }}</option>
-                                          @endforeach
-                                      </select>
-                                    </div>
+                                <div class="col-12 mb-3"><h1 class="">Upload 3 Images</h1></div>
+                                <div class="col-12">
+                                    <category-dropdown />
                                 </div>
                                 <div class="form-group col-md-12 mb-3">
                                   <label for="">Name Product</label>

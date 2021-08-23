@@ -16,12 +16,13 @@
         <link
       rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
         <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100" id="app">
             @include('layouts.navbar')
-
+            {{-- <example-component /> --}}
             <main>
              @yield('content')
             </main>
@@ -42,5 +43,6 @@
             },
         });
         </script>
+
         </body>
 </html>
