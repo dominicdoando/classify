@@ -16,7 +16,8 @@ class AdvertisementController extends Controller
      */
     public function index()
     {
-        //
+        $ads = Advertisement::get();
+        return view('ads.index', compact('ads'));
     }
 
     /**

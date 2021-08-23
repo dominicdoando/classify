@@ -25,6 +25,7 @@ Vue.component('feature-image', require('./components/imagepreview/FeatureImage.v
 Vue.component('first-image', require('./components/imagepreview/FirstImage.vue').default);
 Vue.component('second-image', require('./components/imagepreview/SecondImage.vue').default);
 Vue.component('category-dropdown', require('./components/CategoryDropDown.vue').default);
+Vue.component('address-dropdown', require('./components/AddressDropDown.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

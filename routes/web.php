@@ -34,5 +34,6 @@ Route::get('/','MenuController@menu');
 //ad
 Route::get('/ads/create','AdvertisementController@create');
 Route::post('/ads/store','AdvertisementController@store')->name('ads.store');
+Route::get('/ads','AdvertisementController@index')->name('ads.index');
 
 

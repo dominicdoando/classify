@@ -6,23 +6,7 @@
 
         <div class="row">
             <div class="col-md-3">
-                <div class="card">
-                  <div class="card-body">
-                    <img class="card-img-top" src="{{ asset('images/user.png') }}" alt="">
-                    <p class="text-center">
-                        <b>Dominic Doan</b>
-                    </p>
-                  </div>
-                  <hr>
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
-                    <a href="#" class="list-group-item list-group-item-action">Profile</a>
-                    <a href="#" class="list-group-item list-group-item-action disabled">Create ads</a>
-                    <a href="#" class="list-group-item list-group-item-action disabled">Pulished ads</a>
-                    <a href="#" class="list-group-item list-group-item-action disabled">Pending ads</a>
-                    <a href="#" class="list-group-item list-group-item-action disabled">Dashboard</a>
-                </div>
-                </div>
+                @include('frontend.sidebar')
             </div>
             <div class="col-md-9">
                 @if($errors->any())
@@ -106,7 +90,7 @@
                                       <input type="text" class="form-control" name="listing_location">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
+                                {{-- <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                       <label for="">Country</label>
                                       <select class="form-control" name="country_id">
@@ -138,6 +122,9 @@
                                         @endforeach
                                       </select>
                                     </div>
+                                </div> --}}
+                                <div class="col-12">
+                                    <address-dropdown />
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <div class="form-group">

@@ -21,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/category', 'Api\ApiCategoryController@getCategory');
 Route::get('/subcategory', 'Api\ApiCategoryController@getSubCategory');
 Route::get('/childcategory', 'Api\ApiCategoryController@getChildCategory');
+Route::get('/country', 'Api\AddressController@getCountry');
+Route::get('/state', 'Api\AddressController@getState');
+Route::get('/city', 'Api\AddressController@getCity');
