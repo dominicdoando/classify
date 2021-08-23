@@ -29,12 +29,12 @@ class AdsFormRequest extends FormRequest
             'second_image'=>'required|mimes:png,jpg,jpeg,svg',
             'name'=>'required|min:3|max:60',
             'description'=>'required|min:3',
-            'price'=>'required|regex"/^\d+(\.\d{1,2})?$/',
-            'price_status'=>'require',
-            'category_id'=>'require',
-            'product_condition'=>'require',
-            'country_id'=>'require',
-            'phone_number'=>'numeric|size:10',
+            'price'=>'required',
+            'price_status'=>'required',
+            'category_id'=>'required',
+            'product_condition'=>'required',
+            'country_id'=>'required',
+            'phone_number'=>'required',
         ];
     }
 }

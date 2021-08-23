@@ -7,11 +7,11 @@
     </div>
     <hr>
   <div class="list-group">
-      <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
+      <a href="" class="list-group-item list-group-item-action">Dashboard</a>
       <a href="#" class="list-group-item list-group-item-action">Profile</a>
-      <a href="#" class="list-group-item list-group-item-action disabled">Create ads</a>
-      <a href="#" class="list-group-item list-group-item-action disabled">Pulished ads</a>
-      <a href="#" class="list-group-item list-group-item-action disabled">Pending ads</a>
-      <a href="#" class="list-group-item list-group-item-action disabled">Dashboard</a>
+      <a href="{{route('ads.create')}}" class="list-group-item list-group-item-action {{ request()->is('ads/create')?'active':'' }}">Create ads</a>
+      <a href="{{ route('ads.index') }}" class="list-group-item list-group-item-action {{ request()->is('ads')?'active':'' }}">Pulished ads</a>
+      <a href="" class="list-group-item list-group-item-action">Pending ads</a>
+      <a href="#" class="list-group-item list-group-item-action">Dashboard</a>
   </div>
   </div>

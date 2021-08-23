@@ -48,6 +48,7 @@ class AdvertisementController extends Controller
         $data['slug'] = Str::slug($request->name);
         $data['user_id'] = auth()->user()->id;
         Advertisement::create($data);
+        return redirect()->route('ads.index')->with('message', 'Item Update Successfully');
     }
 
     /**
@@ -69,7 +70,11 @@ class AdvertisementController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $ad = Advertisement::find($id);
+        $this->authorize('edit-ad', $ad);
+        return view('ads.edit', compact('ad'));
+
     }
 
     /**
@@ -81,7 +86,26 @@ class AdvertisementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ad = Advertisement::find($id);
+        $featureImage = $ad->feature_image;
+        $firstImage = $ad->first_image;
+        $secondImage = $ad->second_image;
+        $data = $request->all();
+        if($request->hasFile('feature_image')){
+            $featureImage = $request->file('feature_image')->store('ads');
+        }
+        if($request->hasFile('first_image')){
+            $firstImage = $request->file('first_image')->store('ads');
+        }
+        if($request->hasFile('second_image')){
+            $secondImage = $request->file('second_image')->store('ads');
+        }
+        $data['feature_image'] = $featureImage;
+        $data['first_image'] = $firstImage;
+        $data['second_image'] = $secondImage;
+
+        $ad->update($data);
+        return redirect()->route('ads.index')->with('message', 'Item Update Successfully');
     }
 
     /**
@@ -92,6 +116,8 @@ class AdvertisementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ad = Advertisement::find($id);
+        $ad->delete();
+        return redirect()->route('ads.index')->with('message', 'Advertisement delete successfully');
     }
 }

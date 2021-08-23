@@ -1,7 +1,7 @@
 <template>
     <div>
         <input type="file" name="second_image" @change="onFileChange"  class=""  accept="image/*"
-        required="true"/>
+        />
         <div id="preview">
             <img v-if="url" :src="url" width="100" height="100" alt="" />
         </div>

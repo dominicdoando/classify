@@ -7,6 +7,7 @@
                 @include('frontend.sidebar')
             </div>
             <div class="col-md-9">
+                @include('backend.inc.message')
                 <div class="table-responsive">
                     <table class="table table-striped table-inverse">
                         <thead class="thead-inverse">
@@ -22,12 +23,18 @@
                             </thead>
                             <tbody>
                                 @foreach ($ads as $key =>$ad)
-
-                                @endforeach
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>
-                                        <img width="130px" src="{{asset('images/'.$ad->feature_image)}}" alt="">
+                                              <div class="swiper-slide">
+                                                <img src="{{asset('images/'.$ad->feature_image)}}" alt="">
+                                              </div>
+                                              <div class="swiper-slide">
+                                                <img src="{{asset('images/'.$ad->first_image)}}" alt="">
+                                              </div>
+                                              <div class="swiper-slide">
+                                                <img src="{{asset('images/'.$ad->second_image)}}" alt="">
+                                              </div>
                                     </td>
                                     <td>{{$ad->name}}</td>
                                     <td>{{$ad->price}}</td>
@@ -37,9 +44,15 @@
                                         <span class="badge badge-danger">Pending</span>
                                     @endif
                                     </td>
-                                    <td><a href="" class="btn btn-info">Edit</a></td>
-                                    <td><a href="" class="btn btn-danger">Delete</a></td>
+                                    <td><a href="{{ route('ads.edit', $ad->id) }}" class="btn btn-info">Edit</a></td>
+                                    <td><a href="{{ route('ads.destroy', $ad->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a></td>
                                 </tr>
+                                @if($ads->isEmpty())
+                                <td>No Advertisement</td>
+                                @endif
+
+                                @endforeach
+
                             </tbody>
                     </table>
                 </div>

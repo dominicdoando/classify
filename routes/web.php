@@ -32,8 +32,13 @@ Route::group(['prefix' => 'auth'], function(){
 });
 Route::get('/','MenuController@menu');
 //ad
-Route::get('/ads/create','AdvertisementController@create');
+Route::get('/ads/create','AdvertisementController@create')->name('ads.create');
 Route::post('/ads/store','AdvertisementController@store')->name('ads.store');
 Route::get('/ads','AdvertisementController@index')->name('ads.index');
+Route::get('/ads/{id}/edit','AdvertisementController@edit')->name('ads.edit');
+Route::get('/ads/{id}/delete','AdvertisementController@destroy')->name('ads.destroy');
+Route::post('/ads/{id}/update','AdvertisementController@update')->name('ads.update');
 
+//PRofile
+Route::get('/profile','ProfileController@index')->name('profile.index');
 
