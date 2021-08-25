@@ -20,4 +20,10 @@ class Subcategory extends Model
     public function childcategories(){
         return $this->hasMany(Childcategory::class);
     }
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+    public function ads(){
+        return $this->hasMany(Advertisement::class);
+    }
 }

@@ -13,6 +13,12 @@ class Childcategory extends Model
         'subcategory_id',
         'slug',
     ];
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+    public function ads(){
+        return $this->hasMany(Advertisement::class);
+    }
     public function category(){
         return $this->belongsTo(Subcategory::class, 'subcategory_id', 'id');
     }

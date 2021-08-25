@@ -43908,12 +43908,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("input", {
-      attrs: {
-        type: "file",
-        name: "feature_image",
-        accept: "image/*",
-        required: "true"
-      },
+      attrs: { type: "file", name: "feature_image", accept: "image/*" },
       on: { change: _vm.onFileChange }
     }),
     _vm._v(" "),
@@ -43951,12 +43946,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("input", {
-      attrs: {
-        type: "file",
-        name: "first_image",
-        accept: "image/*",
-        required: "true"
-      },
+      attrs: { type: "file", name: "first_image", accept: "image/*" },
       on: { change: _vm.onFileChange }
     }),
     _vm._v(" "),
@@ -43994,12 +43984,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("input", {
-      attrs: {
-        type: "file",
-        name: "second_image",
-        accept: "image/*",
-        required: "true"
-      },
+      attrs: { type: "file", name: "second_image", accept: "image/*" },
       on: { change: _vm.onFileChange }
     }),
     _vm._v(" "),

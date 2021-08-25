@@ -1,5 +1,63 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @charset "UTF-8";
+img {
+  max-width: 100%;
+}
+
+.list-product__item p {
+  word-wrap: break-word;
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  font-size: 16px;
+  list-style: none;
+  padding: 0;
+}
+.menu > li {
+  position: relative;
+}
+.menu > li > a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: green;
+  font-weight: 500;
+}
+.menu > li > a:hover {
+  text-decoration: none;
+}
+.menu > li:hover ul {
+  display: block;
+}
+.menu > li ul {
+  position: absolute;
+  list-style: none;
+  top: 100%;
+  left: 0;
+  width: 300px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  display: none;
+  z-index: 2;
+}
+.menu > li ul li {
+  width: 100%;
+}
+.menu > li ul li a {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  background: #fff;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}
+.menu > li ul li a:hover {
+  background: green;
+  color: #fff;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

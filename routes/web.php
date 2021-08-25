@@ -36,9 +36,14 @@ Route::get('/ads/create','AdvertisementController@create')->name('ads.create');
 Route::post('/ads/store','AdvertisementController@store')->name('ads.store');
 Route::get('/ads','AdvertisementController@index')->name('ads.index');
 Route::get('/ads/{id}/edit','AdvertisementController@edit')->name('ads.edit');
-Route::get('/ads/{id}/delete','AdvertisementController@destroy')->name('ads.destroy');
 Route::post('/ads/{id}/update','AdvertisementController@update')->name('ads.update');
+Route::get('/ads/{id}/delete','AdvertisementController@destroy')->name('ads.destroy');
+
 
 //PRofile
-Route::get('/profile','ProfileController@index')->name('profile.index');
+Route::get('/profile','ProfileController@index')->name('profile.inde x');
+
+//FRONTEND
+Route::get('/product/{categorySlug}/{subcategorySlug}','FrontendController@findBaseOnSubcategory')->name('subcategory.show');
+Route::get('/product/{categorySlug}/{subcategorySlug}/{childcategorySlug}','FrontendController@findBaseOnChildcategory')->name('childcategory.show');
 
