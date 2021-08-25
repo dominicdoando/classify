@@ -9,6 +9,12 @@ use App\Models\Subcategory;
 use App\Models\ChildCategory;
 class FrontendController extends Controller
 {
+    public function findBaseOnCategory(Category $categorySlug){
+        $advertisements = $categorySlug->ads;
+        $filterBySubcategories = Subcategory::where('category_id', $categorySlug->id)->get();
+        return view('product.category', compact('filterBySubcategories', 'advertisements'));
+    }
+
     public function findBaseOnSubcategory(Request $request,$categorySlug,Subcategory $subcategorySlug){
 
         $advertisementBaseOnFilter = Advertisement::where('subcategory_id', $subcategorySlug->id)->when($request->minPrice, function($query, $minPrice) {
