@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <div class="card pl-2 pr-2">
+                <div class="card p-3">
                         <div class="list-group">
                             @foreach ($filterByChildCategories as $ad)
                             <a href="{{ url()->current()}}/{{($ad->childcategory->slug)??'' }}" class="list-group-item">{{$ad->childcategory->name??''}}</a>

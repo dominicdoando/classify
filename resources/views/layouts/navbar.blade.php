@@ -13,7 +13,7 @@
                             <ul>
                                 @foreach ($submenu->childcategories as $childmenu)
                                 <li>
-                                    <a href="">{{$childmenu->name}}</a>
+                                    <a href="{{ route('childcategory.show', [$menu->slug,$submenu->slug, $childmenu->slug]) }}">{{$childmenu->name}}</a>
                                 </li>
                                 @endforeach
                             </ul>

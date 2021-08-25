@@ -24,11 +24,24 @@ class FrontendController extends Controller
 
     }
     public function findBaseOnChildcategory(
+        Request $request,
         $categorySlug,
         Subcategory $subcategorySlug,
         ChildCategory $childcategorySlug){
-        $advertisements = $childcategorySlug->ads;
+        $advertisementBaseOnFilter = Advertisement::where(
+            'childcategory_id',
+            $childcategorySlug->id
+            )->when($request->minPrice, function($query, $minPrice) {
+            return $query->where('price','>=' ,$minPrice);
+        })->when($request->maxPrice, function($query, $maxPrice) {
+            return $query->where('price','<=', $maxPrice);
+        })->get();
+
+
+        $advertisementsWithoutFilter = $childcategorySlug->ads;
         $filterByChildCategories = $subcategorySlug->ads->unique('childcategory_id');
+
+        $advertisements = $request->minPrice||$request->maxPrice?$advertisementBaseOnFilter:$advertisementsWithoutFilter;// CHOOSE PRICE
         return view('product.childcategory', compact('advertisements', 'filterByChildCategories'));
     }
 }

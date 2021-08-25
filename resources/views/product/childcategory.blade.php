@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <div class="card">
+                <div class="card p-3">
                         <div class="list-group">
                             @foreach ($filterByChildCategories as $ad)
                             @php
@@ -13,6 +13,21 @@
                             <a href="" class="list-group-item">{{$ad->childcategory->name??''}}</a>
                             @endforeach
                         </div>
+                        <form action="{{ url()->current() }}" method="get">
+                            <div class="form-group">
+                              <label for="">Minumum Price</label>
+                              <input type="text"
+                                class="form-control" name="minPrice" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Maximum Price</label>
+                                <input type="text"
+                                  class="form-control" name="maxPrice" placeholder="">
+                              </div>
+                              <div class="form-group">
+                                <button class="btn btn-danger">Search</button>
+                              </div>
+                        </form>
                   </div>
             </div>
             <div class="col-md-9">
