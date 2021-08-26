@@ -33,11 +33,12 @@
                 <div class="row list-product">
                     @forelse ($advertisements as $advertisement)
                         <div class="col-md-3 list-product__item">
-                            <img src="{{ asset('images/'.$advertisement->feature_image) }}" alt="" />
-                            <p>{{ $advertisement->price }}</p>
+                            <a href="{{ route('product.show', [$advertisement->id, $advertisement->slug]) }}">
+                                <img src="{{ asset('images/'.$advertisement->feature_image) }}" alt="" />
+                                <p>{{ $advertisement->price }}</p>
+                            </a>
                         </div>
                     @empty
-
                     @endforelse
                 </div>
             </div>

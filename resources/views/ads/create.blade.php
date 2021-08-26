@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="form-group col-md-12 mb-3">
                                     <label for="">Description</label>
-                                    <textarea name="description" cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea name="description"  cols="30" rows="10" class="form-control textarea"></textarea>
                                   </div>
                                   <div class="form-group col-md-12 mb-3">
                                     <label for="">Price Product</label>

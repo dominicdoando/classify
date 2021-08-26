@@ -3,7 +3,7 @@
           <ul class="menu">
               @foreach ($menus as $menu)
                 <li>
-                    <a class="" href="{{ route('category.show',[$menu->slug]) }}">
+                    <a class="" href="{{ route('category.index',[$menu->slug]) }}">
                     {{$menu->name}}
                     </a>
                     <ul>

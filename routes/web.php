@@ -41,10 +41,20 @@ Route::get('/ads/{id}/delete','AdvertisementController@destroy')->name('ads.dest
 
 
 //PRofile
-Route::get('/profile','ProfileController@index')->name('profile.inde x');
+Route::get('/profile','ProfileController@index')->name('profile.index');
 
 //FRONTEND
-Route::get('/product/{categorySlug}','FrontendController@findBaseOnCategory')->name('category.show');
-Route::get('/product/{categorySlug}/{subcategorySlug}','FrontendController@findBaseOnSubcategory')->name('subcategory.show');
+
+
 Route::get('/product/{categorySlug}/{subcategorySlug}/{childcategorySlug}','FrontendController@findBaseOnChildcategory')->name('childcategory.show');
+Route::get('/product/{categorySlug}/{subcategorySlug}','FrontendController@findBaseOnSubcategory')->name('subcategory.show');
+Route::get('/product/{categorySlug}','FrontendController@findBaseOnCategory')->name('category.index');
+Route::get('/products/{id}/{slug}','FrontendController@show')->name('product.show');
+
+
+
+
+
+
+
 

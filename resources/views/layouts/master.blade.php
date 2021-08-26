@@ -18,6 +18,13 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="https://cdn.tiny.cloud/1/eaf8zzwygp331j3xiitaa4dc7tzxnjwti26vh1gqncoiwje8/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script src='https://cdn.tiny.cloud/1/eaf8zzwygp331j3xiitaa4dc7tzxnjwti26vh1gqncoiwje8/tinymce/5/tinymce.min.js' referrerpolicy="origin"></script>
+        <script>
+            tinymce.init({
+              selector: '.textarea'
+            });
+          </script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100" id="app">

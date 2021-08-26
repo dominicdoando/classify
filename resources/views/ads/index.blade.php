@@ -45,6 +45,7 @@
                                     @endif
                                     </td>
                                     <td><a href="{{ route('ads.edit', $ad->id) }}" class="btn btn-info">Edit</a></td>
+                                    <td><a href="{{ route('product.show', [$ad->id, $ad->slug]) }}" class="btn btn-success">View</a></td>
                                     <td><a href="{{ route('ads.destroy', $ad->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a></td>
                                 </tr>
                                 @if($ads->isEmpty())

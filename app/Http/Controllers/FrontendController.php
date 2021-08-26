@@ -50,4 +50,8 @@ class FrontendController extends Controller
         $advertisements = $request->minPrice||$request->maxPrice?$advertisementBaseOnFilter:$advertisementsWithoutFilter;// CHOOSE PRICE
         return view('product.childcategory', compact('advertisements', 'filterByChildCategories'));
     }
+    public function show($id, $slug){
+        $advertisement = Advertisement::where('id', $id)->where('slug', $slug)->first();
+        return view('product.show', compact('advertisement'));
+    }
 }
